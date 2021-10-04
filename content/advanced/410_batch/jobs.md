@@ -34,7 +34,7 @@ EoF
 Run a sample Kubernetes Job using the `whalesay` image.
 
 ```bash
-kubectl apply -f job-whalesay.yaml
+kubectl apply -f ~/environment/batch_policy/job-whalesay.yaml
 ```
 
 Wait until the job has completed successfully.
@@ -44,8 +44,8 @@ kubectl get job/whalesay
 ```
 
 {{< output >}}
-NAME       DESIRED   SUCCESSFUL   AGE
-whalesay   1         1            2m
+NAME       COMPLETIONS   DURATION   AGE
+whalesay   1/1           3s         21s
 {{< /output >}}
 
 Confirm the output.
@@ -55,10 +55,7 @@ kubectl logs -l job-name=whalesay
 ```
 
 {{< output >}}
- ___________________________ 
-< This is a Kubernetes Job! >
- --------------------------- 
-    \
+
      \
       \     
                     ##        .            
@@ -68,5 +65,6 @@ kubectl logs -l job-name=whalesay
   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~   
        \______ o          __/            
         \    \        __/             
-          \____\______/   
+          \____\______/  
+
 {{< /output >}}
